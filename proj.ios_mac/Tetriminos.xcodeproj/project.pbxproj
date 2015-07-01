@@ -69,6 +69,8 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C1969E1B447DBF00B96768 /* Lobby.cpp */; };
 		F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C1969E1B447DBF00B96768 /* Lobby.cpp */; };
+		F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196A81B448FEE00B96768 /* GameScene.cpp */; };
+		F8C196AB1B448FEE00B96768 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196A81B448FEE00B96768 /* GameScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,8 @@
 		F8C1969E1B447DBF00B96768 /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
 		F8C1969F1B447DBF00B96768 /* Lobby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lobby.h; sourceTree = "<group>"; };
 		F8C196A31B44832800B96768 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F8C196A81B448FEE00B96768 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		F8C196A91B448FEE00B96768 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +303,8 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				F8C196A81B448FEE00B96768 /* GameScene.cpp */,
+				F8C196A91B448FEE00B96768 /* GameScene.h */,
 				F8C1969E1B447DBF00B96768 /* Lobby.cpp */,
 				F8C1969F1B447DBF00B96768 /* Lobby.h */,
 			);
@@ -503,6 +509,7 @@
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
@@ -512,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C196AB1B448FEE00B96768 /* GameScene.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */,
