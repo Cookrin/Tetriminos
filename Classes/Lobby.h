@@ -10,6 +10,7 @@
 #define __Tetriminos__Lobby__
 
 #include <cocos2d.h>
+#include "CocosGUI.h"
 
 
 // create the class Lobby
@@ -22,7 +23,16 @@ public:
 private:
     // virtual bool init();
     bool init() override;
-    //void onEnter() override;
+    void onEnter() override;
+    
+protected:
+    void setupUI();
+    
+    void singlePlayerPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
+    void multiplayerPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+
+
 };
 
 #endif /* defined(__Tetriminos__Lobby__) */

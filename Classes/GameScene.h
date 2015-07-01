@@ -10,7 +10,9 @@
 #define __Tetriminos__GameScene__
 
 
-#include <cocos2d.h>
+#include "cocos2d.h"
+#include "CocosGUI.h"
+
 
 
 // create the class GameScene
@@ -21,9 +23,14 @@ public:
     CREATE_FUNC(GameScene);
     
 private:
-    // virtual bool init();
+    
+protected:
+    //
     bool init() override;
-    //void onEnter() override;
+    void onEnter() override;
+
+    void setupUI();
+    void backButtonPressed(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 #endif /* defined(__Tetriminos__GameScene__) */

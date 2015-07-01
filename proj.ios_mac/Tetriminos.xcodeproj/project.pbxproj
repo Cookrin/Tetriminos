@@ -71,6 +71,8 @@
 		F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C1969E1B447DBF00B96768 /* Lobby.cpp */; };
 		F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196A81B448FEE00B96768 /* GameScene.cpp */; };
 		F8C196AB1B448FEE00B96768 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196A81B448FEE00B96768 /* GameScene.cpp */; };
+		F8C196AF1B4498F100B96768 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196AD1B4498F100B96768 /* SceneManager.cpp */; };
+		F8C196B01B4498F100B96768 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196AD1B4498F100B96768 /* SceneManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +170,8 @@
 		F8C196A31B44832800B96768 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F8C196A81B448FEE00B96768 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		F8C196A91B448FEE00B96768 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		F8C196AD1B4498F100B96768 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		F8C196AE1B4498F100B96768 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +309,8 @@
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				F8C196A81B448FEE00B96768 /* GameScene.cpp */,
 				F8C196A91B448FEE00B96768 /* GameScene.h */,
+				F8C196AD1B4498F100B96768 /* SceneManager.cpp */,
+				F8C196AE1B4498F100B96768 /* SceneManager.h */,
 				F8C1969E1B447DBF00B96768 /* Lobby.cpp */,
 				F8C1969F1B447DBF00B96768 /* Lobby.h */,
 			);
@@ -507,6 +513,7 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				F8C196AF1B4498F100B96768 /* SceneManager.cpp in Sources */,
 				F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */,
@@ -521,6 +528,7 @@
 			files = (
 				F8C196AB1B448FEE00B96768 /* GameScene.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				F8C196B01B4498F100B96768 /* SceneManager.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
