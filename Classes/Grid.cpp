@@ -7,3 +7,14 @@
 //
 
 #include "Grid.h"
+
+
+bool Grid::init()
+{
+    if (! Sprite::init())
+    {
+        return false;
+    }
+    
+    return true;
+}

@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "CocosGUI.h"
 
-
+class Grid;
 
 // create the class GameScene
 class GameScene : public cocos2d::Node
@@ -26,6 +26,8 @@ private:
     
 protected:
     //
+    Grid*grid;
+    
     bool init() override;
     void onEnter() override;
 

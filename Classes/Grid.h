@@ -11,4 +11,13 @@
 
 #include <stdio.h>
 
+class Grid:public cocos2d::Sprite
+{
+public:
+    CREATE_FUNC(Grid);
+    
+private:
+    bool init() override;
+};
+
 #endif /* defined(__Tetriminos__Grid__) */

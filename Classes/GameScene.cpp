@@ -8,6 +8,7 @@
 
 #include "GameScene.h"
 #include "SceneManager.h"
+#include "Grid.h"
 
 using namespace cocos2d;
 
@@ -32,8 +33,19 @@ void GameScene::onEnter()
 {
     Node::onEnter();
     
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    
+    // setup grid
+    grid = Grid::create();
+    grid->setAnchorPoint(Vec2(0.5f, 0.0f));
+    grid->setPosition(Vec2(visibleSize.width* 0.5f, visibleSize.height * 0.0f));
+    this->addChild(grid);
+    
     this->setupUI();
 }
+
+#pragma mark -
+#pragma mark GameScene UI Methods
 
 void GameScene::setupUI()
 {

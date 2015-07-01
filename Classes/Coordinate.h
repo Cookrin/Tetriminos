@@ -9,6 +9,19 @@
 #ifndef __Tetriminos__Coordinate__
 #define __Tetriminos__Coordinate__
 
-#include <stdio.h>
+#include "cocos2d.h"
+
+
+class Coordinate
+{
+public:
+    int x;
+    int y;
+    
+    Coordinate();
+    Coordinate(int x, int y);
+    
+    static Coordinate add(Coordinate a, Coordinate b);
+};
 
 #endif /* defined(__Tetriminos__Coordinate__) */

@@ -73,6 +73,12 @@
 		F8C196AB1B448FEE00B96768 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196A81B448FEE00B96768 /* GameScene.cpp */; };
 		F8C196AF1B4498F100B96768 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196AD1B4498F100B96768 /* SceneManager.cpp */; };
 		F8C196B01B4498F100B96768 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196AD1B4498F100B96768 /* SceneManager.cpp */; };
+		F8C196B31B44A48E00B96768 /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B11B44A48E00B96768 /* Grid.cpp */; };
+		F8C196B41B44A48E00B96768 /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B11B44A48E00B96768 /* Grid.cpp */; };
+		F8C196B71B44A84B00B96768 /* Tetromino.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B51B44A84B00B96768 /* Tetromino.cpp */; };
+		F8C196B81B44A84B00B96768 /* Tetromino.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B51B44A84B00B96768 /* Tetromino.cpp */; };
+		F8C196BB1B44AFD000B96768 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B91B44AFD000B96768 /* Coordinate.cpp */; };
+		F8C196BC1B44AFD000B96768 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B91B44AFD000B96768 /* Coordinate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +178,12 @@
 		F8C196A91B448FEE00B96768 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		F8C196AD1B4498F100B96768 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		F8C196AE1B4498F100B96768 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		F8C196B11B44A48E00B96768 /* Grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Grid.cpp; sourceTree = "<group>"; };
+		F8C196B21B44A48E00B96768 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		F8C196B51B44A84B00B96768 /* Tetromino.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tetromino.cpp; sourceTree = "<group>"; };
+		F8C196B61B44A84B00B96768 /* Tetromino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tetromino.h; sourceTree = "<group>"; };
+		F8C196B91B44AFD000B96768 /* Coordinate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coordinate.cpp; sourceTree = "<group>"; };
+		F8C196BA1B44AFD000B96768 /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +325,12 @@
 				F8C196AE1B4498F100B96768 /* SceneManager.h */,
 				F8C1969E1B447DBF00B96768 /* Lobby.cpp */,
 				F8C1969F1B447DBF00B96768 /* Lobby.h */,
+				F8C196B11B44A48E00B96768 /* Grid.cpp */,
+				F8C196B21B44A48E00B96768 /* Grid.h */,
+				F8C196B51B44A84B00B96768 /* Tetromino.cpp */,
+				F8C196B61B44A84B00B96768 /* Tetromino.h */,
+				F8C196B91B44AFD000B96768 /* Coordinate.cpp */,
+				F8C196BA1B44AFD000B96768 /* Coordinate.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -511,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C196B31B44A48E00B96768 /* Grid.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				F8C196AF1B4498F100B96768 /* SceneManager.cpp in Sources */,
@@ -518,7 +537,9 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				F8C196BB1B44AFD000B96768 /* Coordinate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				F8C196B71B44A84B00B96768 /* Tetromino.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,11 +548,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C196AB1B448FEE00B96768 /* GameScene.cpp in Sources */,
+				F8C196BC1B44AFD000B96768 /* Coordinate.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				F8C196B01B4498F100B96768 /* SceneManager.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */,
+				F8C196B41B44A48E00B96768 /* Grid.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				F8C196B81B44A84B00B96768 /* Tetromino.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

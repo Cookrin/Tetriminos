@@ -9,7 +9,7 @@
 #ifndef __Tetriminos__Lobby__
 #define __Tetriminos__Lobby__
 
-#include <cocos2d.h>
+#include "cocos2d.h"
 #include "CocosGUI.h"
 
 
