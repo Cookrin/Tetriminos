@@ -79,6 +79,8 @@
 		F8C196B81B44A84B00B96768 /* Tetromino.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B51B44A84B00B96768 /* Tetromino.cpp */; };
 		F8C196BB1B44AFD000B96768 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B91B44AFD000B96768 /* Coordinate.cpp */; };
 		F8C196BC1B44AFD000B96768 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196B91B44AFD000B96768 /* Coordinate.cpp */; };
+		F8C196BF1B44B46E00B96768 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196BD1B44B46E00B96768 /* JSONPacker.cpp */; };
+		F8C196C01B44B46E00B96768 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196BD1B44B46E00B96768 /* JSONPacker.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +186,8 @@
 		F8C196B61B44A84B00B96768 /* Tetromino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tetromino.h; sourceTree = "<group>"; };
 		F8C196B91B44AFD000B96768 /* Coordinate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coordinate.cpp; sourceTree = "<group>"; };
 		F8C196BA1B44AFD000B96768 /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		F8C196BD1B44B46E00B96768 /* JSONPacker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONPacker.cpp; sourceTree = "<group>"; };
+		F8C196BE1B44B46E00B96768 /* JSONPacker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONPacker.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +335,8 @@
 				F8C196B61B44A84B00B96768 /* Tetromino.h */,
 				F8C196B91B44AFD000B96768 /* Coordinate.cpp */,
 				F8C196BA1B44AFD000B96768 /* Coordinate.h */,
+				F8C196BD1B44B46E00B96768 /* JSONPacker.cpp */,
+				F8C196BE1B44B46E00B96768 /* JSONPacker.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -540,6 +546,7 @@
 				F8C196BB1B44AFD000B96768 /* Coordinate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F8C196B71B44A84B00B96768 /* Tetromino.cpp in Sources */,
+				F8C196BF1B44B46E00B96768 /* JSONPacker.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +561,7 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */,
 				F8C196B41B44A48E00B96768 /* Grid.cpp in Sources */,
+				F8C196C01B44B46E00B96768 /* JSONPacker.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				F8C196B81B44A84B00B96768 /* Tetromino.cpp in Sources */,
 			);

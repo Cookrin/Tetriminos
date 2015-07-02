@@ -7,6 +7,8 @@
 //
 
 #include "Grid.h"
+#include "Tetromino.h"
+
 
 
 bool Grid::init()
@@ -14,6 +16,8 @@ bool Grid::init()
     if (! Sprite::init())
     {
         return false;
+        
+        // Tetromino* test = Tetromino::createWithType(TetrominoType::I);
     }
     
     return true;

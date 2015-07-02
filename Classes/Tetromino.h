@@ -21,7 +21,7 @@ public:
     static Tetromino* createWithType(TetrominoType type);
     
 private:
-    //    
+    //
     TetrominoType type;
     std::vector<std::vector<Coordinate>> rotations;
     
