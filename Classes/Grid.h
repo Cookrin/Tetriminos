@@ -21,8 +21,11 @@ public:
     
     void rotateActiveTetromino();
     
+    void spawnTetromino(Tetromino* tetromino);
+    
 private:
     Tetromino* activeTetromino;
+
     bool init() override;
     void onEnter() override;
 };

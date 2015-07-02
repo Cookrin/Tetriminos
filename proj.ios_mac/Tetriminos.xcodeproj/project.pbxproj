@@ -67,6 +67,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		F8775FD71B45DCAF0090771F /* TetrominoBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */; };
+		F8775FD81B45DCAF0090771F /* TetrominoBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */; };
 		F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C1969E1B447DBF00B96768 /* Lobby.cpp */; };
 		F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C1969E1B447DBF00B96768 /* Lobby.cpp */; };
 		F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C196A81B448FEE00B96768 /* GameScene.cpp */; };
@@ -173,6 +175,8 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrominoBag.cpp; sourceTree = "<group>"; };
+		F8775FD61B45DCAF0090771F /* TetrominoBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrominoBag.h; sourceTree = "<group>"; };
 		F8C1969E1B447DBF00B96768 /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
 		F8C1969F1B447DBF00B96768 /* Lobby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lobby.h; sourceTree = "<group>"; };
 		F8C196A31B44832800B96768 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 				F8C196B21B44A48E00B96768 /* Grid.h */,
 				F8C196B51B44A84B00B96768 /* Tetromino.cpp */,
 				F8C196B61B44A84B00B96768 /* Tetromino.h */,
+				F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */,
+				F8775FD61B45DCAF0090771F /* TetrominoBag.h */,
 				F8C196B91B44AFD000B96768 /* Coordinate.cpp */,
 				F8C196BA1B44AFD000B96768 /* Coordinate.h */,
 				F8C196BD1B44B46E00B96768 /* JSONPacker.cpp */,
@@ -544,6 +550,7 @@
 				F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F8C196BB1B44AFD000B96768 /* Coordinate.cpp in Sources */,
+				F8775FD71B45DCAF0090771F /* TetrominoBag.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F8C196B71B44A84B00B96768 /* Tetromino.cpp in Sources */,
 				F8C196BF1B44B46E00B96768 /* JSONPacker.cpp in Sources */,
@@ -562,6 +569,7 @@
 				F8C196A11B447DBF00B96768 /* Lobby.cpp in Sources */,
 				F8C196B41B44A48E00B96768 /* Grid.cpp in Sources */,
 				F8C196C01B44B46E00B96768 /* JSONPacker.cpp in Sources */,
+				F8775FD81B45DCAF0090771F /* TetrominoBag.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				F8C196B81B44A84B00B96768 /* Tetromino.cpp in Sources */,
 			);
