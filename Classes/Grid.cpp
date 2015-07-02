@@ -13,12 +13,17 @@
 
 bool Grid::init()
 {
-    if (! Sprite::init())
+    if (! Sprite::initWithFile("grid.png"))
     {
         return false;
-        
-        // Tetromino* test = Tetromino::createWithType(TetrominoType::I);
     }
+    
+    // test JSON Data
+        // Tetromino* test = Tetromino::createWithType(TetrominoType::I);
+    
+    // test Block
+        // Tetromino* testBlock = Tetromino::createWithType(TetrominoType::Z);
+        // this->addChild(testBlock);
     
     return true;
 }

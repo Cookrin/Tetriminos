@@ -24,6 +24,8 @@ private:
     //
     TetrominoType type;
     std::vector<std::vector<Coordinate>> rotations;
+    cocos2d::Color3B color;
+    std::vector<cocos2d::Sprite*> blocks;
     
     bool initWithType(TetrominoType type);
 
