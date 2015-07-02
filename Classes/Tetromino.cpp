@@ -29,6 +29,9 @@ Tetromino* Tetromino::createWithType(TetrominoType type)
     return nullptr;
 }
 
+#pragma mark -
+#pragma mark Tetromino
+
 bool Tetromino::initWithType(TetrominoType type)
 {
 
@@ -48,7 +51,10 @@ bool Tetromino::initWithType(TetrominoType type)
     this->color = tetrominoState.color;
     this->rotations = tetrominoState.rotations;
     
-    this->blocks = std::vector<Sprite*>(4);
+    this->blocks = std::vector<Sprite*>();
+    this->blocks.reserve(4);
+    
+    this->rotationIndex = 0;
     
     Sprite* dummyBlock = Sprite::create("block.png");
     Size dummySize = dummyBlock->getContentSize();
@@ -57,7 +63,7 @@ bool Tetromino::initWithType(TetrominoType type)
     
     this->setContentSize(Size(dummySize.width * gridSizeF, dummySize.height * gridSizeF));
     
-    auto coordinates = rotations[0];
+    auto coordinates = rotations[rotationIndex];
     
     for (Coordinate coordinate : coordinates)
     {
@@ -72,5 +78,42 @@ bool Tetromino::initWithType(TetrominoType type)
     }
     
     return true;
+}
+
+#pragma mark-
+#pragma mark public Methods
+
+void Tetromino::rotate(bool right)
+{
+    //first set the rotation index
+    if (right)
+    {
+        rotationIndex++;
+    }
+    else
+    {
+        rotationIndex--;
+    }
+    
+    if (rotationIndex >=(int) rotations.size())
+    {
+        rotationIndex = 0;
+    }
+    else if (rotationIndex < 0)
+    {
+        rotationIndex = (int) rotations.size() - 1;
+    }
+    
+    auto coordinates = rotations[rotationIndex];
+
+    // then move block positions
+    for (int index = 0; index < GRID_SIZE; ++index)
+    {
+        Sprite* block = blocks[index];
+        Coordinate coordinate = coordinates[index];
+        Size blockSize = block->getContentSize();
+        
+        block->setPosition(Vec2(coordinate.x  * blockSize.width, coordinate.y * blockSize.height));
+    }
 }
 

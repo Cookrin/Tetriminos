@@ -31,6 +31,8 @@ protected:
     bool init() override;
     void onEnter() override;
 
+    void setupTouchHanding();
+    
     void setupUI();
     void backButtonPressed(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };

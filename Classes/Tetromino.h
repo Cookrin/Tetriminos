@@ -13,12 +13,13 @@
 #include "Constants.h"
 #include "Coordinate.h"
 
-
 class Tetromino : public cocos2d::Node
 {
 public:
     //
     static Tetromino* createWithType(TetrominoType type);
+    
+    void rotate(bool right);
     
 private:
     //
@@ -28,6 +29,8 @@ private:
     std::vector<cocos2d::Sprite*> blocks;
     
     bool initWithType(TetrominoType type);
+    
+    int rotationIndex;
 
 protected:
     

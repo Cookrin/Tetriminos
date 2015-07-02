@@ -42,6 +42,7 @@ void GameScene::onEnter()
     this->addChild(grid);
     
     this->setupUI();
+    this->setupTouchHanding();
 }
 
 #pragma mark -
@@ -67,5 +68,27 @@ void GameScene::backButtonPressed(Ref *pSender, ui::Widget::TouchEventType eEven
     {
         SceneManager::getInstance()->enterLobby(false);
     };
+    
+}
+
+#pragma mark -
+#pragma mark GameScene Public Methods
+
+void GameScene::setupTouchHanding()
+{
+    auto touchListener = EventListenerTouchOneByOne::create();
+    
+    touchListener->onTouchBegan = [&](Touch* touch, Event* event)
+    {
+        return true;
+    };
+    
+    touchListener->onTouchEnded = [&](Touch* touch, Event* event)
+    {
+        grid->rotateActiveTetromino();
+        
+    };
+    
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
     
 }
