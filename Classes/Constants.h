@@ -13,10 +13,13 @@
 static const int GRID_WIDTH = 10;
 static const int GRID_HEIGHT = 20;
 
+static const float INITIAL_STEP_INTERVAL = 1.0f;
+
 // enum class or enum struct means almost the same thing
 enum class TetrominoType {
     I = 0,
     O = 1,
+    
     T = 2,
     S = 3,
     Z = 4,

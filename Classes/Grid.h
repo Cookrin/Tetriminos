@@ -11,6 +11,8 @@
 
 #include "cocos2d.h"
 #include "Tetromino.h"
+#include "Coordinate.h"
+
 
 class Tetromino;
 
@@ -23,11 +25,21 @@ public:
     
     void spawnTetromino(Tetromino* tetromino);
     
+    void step();
+    
+    void setActiveTetrominoCoordinate(Coordinate coordinate);
+    Coordinate getActiveTetrominoCoordinate();
+    
+    cocos2d::Size getBlockSize();
+    Tetromino* getActiveTetromino();
+    
 private:
     Tetromino* activeTetromino;
 
     bool init() override;
     void onEnter() override;
+    cocos2d::Vec2 convertCoordinateToPosition(Coordinate coordinate);
+    Coordinate activeTetrominoCoordinate;
 };
 
 #endif /* defined(__Tetriminos__Grid__) */

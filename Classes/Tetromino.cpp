@@ -117,3 +117,50 @@ void Tetromino::rotate(bool right)
     }
 }
 
+int Tetromino::getHighestYCoodinate()
+{
+    auto coordinates = rotations[rotationIndex];
+
+    int highest = 0;
+    
+    for (int index = 0; index < GRID_SIZE; ++index)
+    {
+        Coordinate coordinate = coordinates[index];
+        
+        
+        auto YCoodinate = coordinate.y;
+        
+        if (YCoodinate > highest)
+        {
+            highest = YCoodinate;
+        }
+    }
+     return highest;
+}
+
+int Tetromino::getWidthInBlocks()
+{
+    auto coordinates = rotations[rotationIndex];
+    
+    
+    int rightMost = 0;
+    
+    int leftMost = GRID_SIZE;
+    
+    for (int index = 0; index < GRID_SIZE; ++index)
+    {
+        Coordinate coordinate = coordinates[index];
+
+        if (coordinate.x > leftMost)
+        {
+            leftMost = coordinate.x;
+        }
+        
+        //if (coordinate.y > rightMost)
+        //{
+          //  rightMost = coordinate.y;
+        //}
+    }
+
+    return leftMost - rightMost + 1;
+}
