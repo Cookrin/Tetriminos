@@ -199,7 +199,17 @@ void GameScene::setGameActive(bool active) {
 }
 
 void GameScene::step(float dt) {
+   
+    Tetromino* activeTetromino = grid->getActiveTetromino();
+    if (! activeTetromino )
+    {
+        Tetromino* newTetromino = this->createRandomTetromino();
+        this->grid->spawnTetromino(newTetromino);
+    }
+    else
+    {
     this->grid->step();
+    }
 }
 
 #pragma mark -
