@@ -147,36 +147,38 @@ void GameScene::setupTouchHanding()
     
     touchListener->onTouchEnded = [&](Touch* touch, Event* event)
     {
-        
-        Vec2 touchEndPos = this->convertTouchToNodeSpace(touch);
-        float distance = touchEndPos.distance(firstTouchPos);
-        
-        Size blockSize = this->grid->getBlockSize();
-        
-        // allowRotate
-        if (distance < blockSize.width && allowRotate)
+        if (this->grid->getActiveTetromino())
         {
-            grid->rotateActiveTetromino();
-        }
+        
+            Vec2 touchEndPos = this->convertTouchToNodeSpace(touch);
+            float distance = touchEndPos.distance(firstTouchPos);
+            
+            Size blockSize = this->grid->getBlockSize();
+            
+            // allowRotate
+            if (distance < blockSize.width && allowRotate)
+            {
+                grid->rotateActiveTetromino();
+            }
 
-        else {
-            std::clock_t clockDifference = (float) (clock() - touchStartedTime) / CLOCKS_PER_SEC;
-            Vec2 totalDifference = touchEndPos - lastTouchPos; // maybe firstTouchPos
-            
-            float velocity = fabsf(totalDifference.y / clockDifference);
-            
-            if (clockDifference <= 0)
-            {
-                return;
-            }
-            
-            if (velocity > DROP_VELOCITY)
-            {
-                CCLOG("DROP VELOCITY was %f", velocity);
+            else {
+                std::clock_t clockDifference = (float) (clock() - touchStartedTime) / CLOCKS_PER_SEC;
+                Vec2 totalDifference = touchEndPos - lastTouchPos; // maybe firstTouchPos
+                
+                float velocity = fabsf(totalDifference.y / clockDifference);
+                
+                if (clockDifference <= 0)
+                {
+                    return;
+                }
+                
+                if (velocity > DROP_VELOCITY)
+                {
+                    CCLOG("DROP VELOCITY was %f", velocity);
+                    this->grid->dropActiveTetromino();
+                }
             }
         }
-        
-        
     };
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }

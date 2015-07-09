@@ -122,6 +122,14 @@ Tetromino* Grid::getActiveTetromino()
     return this->activeTetromino;
 }
 
+void Grid::dropActiveTetromino()
+{
+    Coordinate landingCoordinate = this->getTetrominoLandingCoordinate();
+    
+    this->setActiveTetrominoCoordinate(landingCoordinate);
+    this->deactivateTetromino(activeTetromino, activeTetrominoCoordinate);
+}
+
 #pragma mark -
 #pragma mark Private Methods
 
@@ -213,4 +221,23 @@ void Grid::placeTetrominoOnBoard(Tetromino *tetromino, Coordinate tetrominoCoord
         // add the block to blockland
         blockLanded[globalCoordinate.y][globalCoordinate.x] = block;
     }
+}
+
+Coordinate Grid::getTetrominoLandingCoordinate()
+{
+    bool collide = false;
+    
+    Coordinate landingCoordinate = this->getActiveTetrominoCoordinate();
+    
+    while(!collide)
+    {
+        landingCoordinate.y--;
+
+        if ( this->checkIfTetrominoCollides(activeTetromino, landingCoordinate) )
+        {
+        landingCoordinate.y++;
+        collide = true;
+        }
+    }
+    return landingCoordinate;
 }
