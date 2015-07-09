@@ -40,6 +40,9 @@ private:
     void onEnter() override;
     cocos2d::Vec2 convertCoordinateToPosition(Coordinate coordinate);
     Coordinate activeTetrominoCoordinate;
+    // a more general functional method, not depend on the state
+        // less state you have the better
+    bool checkIfTetrominoCollides(Tetromino* tetromino, Coordinate tetrominoCoordinate);
 };
 
 #endif /* defined(__Tetriminos__Grid__) */

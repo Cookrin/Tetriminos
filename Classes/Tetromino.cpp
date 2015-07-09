@@ -123,6 +123,8 @@ int Tetromino::getHighestYCoodinate()
 
     int highest = 0;
     
+    /*
+    
     for (int index = 0; index < GRID_SIZE; ++index)
     {
         Coordinate coordinate = coordinates[index];
@@ -135,7 +137,12 @@ int Tetromino::getHighestYCoodinate()
             highest = YCoodinate;
         }
     }
-     return highest;
+    */
+    
+    for (Coordinate coordinate : coordinates) {
+        highest = MAX(highest, coordinate.y);
+    }
+    return highest;
 }
 
 int Tetromino::getWidthInBlocks()
@@ -156,11 +163,52 @@ int Tetromino::getWidthInBlocks()
             leftMost = coordinate.x;
         }
         
-        //if (coordinate.y > rightMost)
-        //{
-          //  rightMost = coordinate.y;
-        //}
+        if (coordinate.x > rightMost)
+        {
+            rightMost = coordinate.x;
+        }
+
     }
 
     return leftMost - rightMost + 1;
+}
+
+int Tetromino::getMinimumXCoordinate()
+{
+    auto coordinates = rotations[rotationIndex];
+    
+    int leftMost = GRID_SIZE;
+    
+    for (Coordinate coordinate : coordinates)
+    {
+        if (coordinate.x < leftMost)
+        {
+            leftMost = coordinate.x;
+        }
+        
+    }
+    return leftMost;
+}
+
+std::vector<int> Tetromino::getSkirt()
+{
+    int width = this->getWidthInBlocks();
+    int skirtStart = this->getMinimumXCoordinate();
+    
+    std::vector<int> skirt = std::vector<int>(width, GRID_SIZE - 1);
+    
+    auto coordinates = rotations[rotationIndex];
+
+    for (Coordinate coordinate : coordinates)
+    {
+        int x = coordinate.x - skirtStart;
+        int y = coordinate.y;
+        int skirtY = skirt[x];
+        
+        if (y < skirtY)
+        {
+            skirt[x] = coordinate.y;
+        }
+    }
+    return skirt;
 }
