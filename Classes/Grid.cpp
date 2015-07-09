@@ -34,6 +34,13 @@ bool Grid::init()
     // this->addChild(rotateBlock);
     // rotateBlock->rotate(true);
     
+    this->activeTetrominoCoordinate = Coordinate();
+    
+    for (int index = 0; index < GRID_HEIGHT; ++index)
+    {
+        std::vector<Sprite*> row(GRID_WIDTH, nullptr);
+        blockLanded.push_back(row);
+    }
     return true;
 }
 
@@ -73,19 +80,29 @@ void Grid::spawnTetromino(Tetromino *tetromino)
     Coordinate spawnCoordinate = Coordinate((GRID_WIDTH /2) - (width / 2) - 1, GRID_HEIGHT- highestY-1);
     
     this->setActiveTetrominoCoordinate(spawnCoordinate);
-    //Vec2 spawnPosition = this->convertCoordinateToPosition(spawnCoordinate);
-    //this->activeTetromino->setPosition(spawnPosition);
     
+    Vec2 spawnPosition = this->convertCoordinateToPosition(spawnCoordinate);
+    this->activeTetromino->setPosition(spawnPosition);
     this->addChild(this->activeTetromino);
 }
 
 void Grid::step()
 {
-    Coordinate activeCoordinate = this->getActiveTetrominoCoordinate();
-    
-    Coordinate nextCoordinate = Coordinate(activeCoordinate.x, activeCoordinate.y-1);
-    
-    this->setActiveTetrominoCoordinate(nextCoordinate);
+    if (activeTetromino)
+    {
+        Coordinate activeCoordinate = this->getActiveTetrominoCoordinate();
+        
+        Coordinate nextCoordinate = Coordinate(activeCoordinate.x, activeCoordinate.y-1);
+        
+        if (checkIfTetrominoCollides(activeTetromino, nextCoordinate))
+        {
+            this->deactivateTetromino(activeTetromino, activeCoordinate);
+        }
+        else
+        {
+            this->setActiveTetrominoCoordinate(nextCoordinate);
+        }
+    }
 }
 
 Coordinate Grid::getActiveTetrominoCoordinate()
@@ -145,6 +162,55 @@ bool Grid::checkIfTetrominoCollides(Tetromino* tetromino, Coordinate tetrominoCo
         {
             return true;
         }
-        return false;
+        
+        if (blockLanded[gridCoordinate.y][gridCoordinate.x])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Grid::deactivateTetromino(Tetromino* tetromino, Coordinate tetrominoCoordinate)
+{
+    this->placeTetrominoOnBoard(tetromino, tetrominoCoordinate);
+    
+    this->activeTetromino->removeFromParent();
+    
+    this->activeTetromino = nullptr;
+}
+
+void Grid::placeTetrominoOnBoard(Tetromino *tetromino, Coordinate tetrominoCoordinate)
+{
+    std::vector<Sprite*> blocks = tetromino->getBlocks();
+    std::vector<Coordinate> coordinates = tetromino->getCurrentRotation();
+    
+    for (int index = 0; index < TETROMINO_BLOCK_NUMBER; ++index)
+    {
+        // get block's tetromino coordinate
+        Coordinate coordinate = coordinates[index];
+        
+        // convert to a grid coordinate
+        Coordinate globalCoordinate = Coordinate::add(tetrominoCoordinate, coordinate);
+        
+        // get the block sprite
+        Sprite* block = blocks[index];
+        
+        // get the block's current position in the grid space
+        Vec2 gridPosition = block->getPosition() + tetromino->getPosition();
+        
+        // remove the block from the tetromino
+        block->retain();
+        block->removeFromParent();
+        
+        // add the block to grid(this)
+        this->addChild(block);
+        block->release();
+        
+        // set the block sprite position(in terms of grid)
+        block->setPosition(gridPosition);
+        
+        // add the block to blockland
+        blockLanded[globalCoordinate.y][globalCoordinate.x] = block;
     }
 }

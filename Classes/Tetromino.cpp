@@ -52,7 +52,7 @@ bool Tetromino::initWithType(TetrominoType type)
     this->rotations = tetrominoState.rotations;
     
     this->blocks = std::vector<Sprite*>();
-    this->blocks.reserve(4);
+    this->blocks.reserve(TETROMINO_BLOCK_NUMBER);
     
     this->rotationIndex = 0;
     
@@ -197,7 +197,7 @@ std::vector<int> Tetromino::getSkirt()
     
     std::vector<int> skirt = std::vector<int>(width, GRID_SIZE - 1);
     
-    auto coordinates = rotations[rotationIndex];
+    auto coordinates = this->getCurrentRotation();
 
     for (Coordinate coordinate : coordinates)
     {
@@ -211,4 +211,14 @@ std::vector<int> Tetromino::getSkirt()
         }
     }
     return skirt;
+}
+
+std::vector<Sprite*> Tetromino::getBlocks()
+{
+    return this->blocks;
+}
+
+std::vector<Coordinate> Tetromino::getCurrentRotation()
+{
+    return rotations[rotationIndex];
 }

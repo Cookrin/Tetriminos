@@ -35,7 +35,8 @@ public:
     
 private:
     Tetromino* activeTetromino;
-
+    std::vector<std::vector<cocos2d::Sprite*>> blockLanded;
+    
     bool init() override;
     void onEnter() override;
     cocos2d::Vec2 convertCoordinateToPosition(Coordinate coordinate);
@@ -43,6 +44,9 @@ private:
     // a more general functional method, not depend on the state
         // less state you have the better
     bool checkIfTetrominoCollides(Tetromino* tetromino, Coordinate tetrominoCoordinate);
+    
+    void deactivateTetromino(Tetromino* tetromino, Coordinate tetrominoCoordinate);
+    void placeTetrominoOnBoard(Tetromino *tetromino, Coordinate tetrominoCoordinate);
 };
 
 #endif /* defined(__Tetriminos__Grid__) */

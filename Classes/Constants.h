@@ -15,7 +15,9 @@ static const int GRID_HEIGHT = 20;
 
 static const float INITIAL_STEP_INTERVAL = 1.0f;
 
-static const float DROP_VELOCITY = 6000.0f;
+static const float DROP_VELOCITY = 8000.0f;
+
+static const int TETROMINO_BLOCK_NUMBER = 4;
 
 // enum class or enum struct means almost the same thing
 enum class TetrominoType {
