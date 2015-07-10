@@ -37,6 +37,7 @@ protected:
     std::unique_ptr<TetrominoBag> tetrominoBag;
     bool active;
     int totalScore;
+    float stepInterval;
     
     //Lifecycle
     bool init() override;
@@ -51,6 +52,7 @@ protected:
     void setGameActive(bool active);
     void step(float dt);
     void updateStateFromScore();
+    void updateGameSpeed(int score);
 
     //Utility
     Coordinate convertPositionToCoodinate(cocos2d::Vec2 position);

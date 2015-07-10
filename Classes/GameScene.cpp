@@ -37,6 +37,8 @@ bool GameScene::init()
     
     this->totalScore = 0;
 
+    this->stepInterval = INITIAL_STEP_INTERVAL;
+    
     this->active = false;
     
     return true;
@@ -108,7 +110,7 @@ void GameScene::updateStateFromScore()
     {
         this->totalScore = newScore;
         this->updateScoreLabel(newScore);
-        
+        this->updateGameSpeed(this->totalScore);
     }
 }
 
@@ -222,7 +224,7 @@ Tetromino* GameScene::createRandomTetromino()
 void GameScene::setGameActive(bool active) {
     this->active = active;
     if (active) {
-        this->schedule(CC_SCHEDULE_SELECTOR(GameScene::step), INITIAL_STEP_INTERVAL);
+        this->schedule(CC_SCHEDULE_SELECTOR(GameScene::step), stepInterval);
     } else {
         this->unschedule(CC_SCHEDULE_SELECTOR(GameScene::step));
     }
@@ -243,6 +245,19 @@ void GameScene::step(float dt) {
     }
 }
 
+void GameScene::updateGameSpeed(int score)
+{
+    int stepAcceleration = score / SCORE_TO_ACCELERATE;
+    
+    //int intervalDeduction = powf(ACCELERATTE_FACTOR, stepAcceleration) * INITIAL_STEP_INTERVAL;
+    float intervalDeduction = INITIAL_STEP_INTERVAL * float(stepAcceleration) * ACCELERATTE_FACTOR;
+    
+    float newInterval = MAX((INITIAL_STEP_INTERVAL-intervalDeduction), SPEED_MAX);
+    this->stepInterval = newInterval;
+    
+    this->unschedule(CC_SCHEDULE_SELECTOR(GameScene::step));
+    this->schedule(CC_SCHEDULE_SELECTOR(GameScene::step), this->stepInterval);
+}
 #pragma mark -
 #pragma mark GameScene Utility Methods
 

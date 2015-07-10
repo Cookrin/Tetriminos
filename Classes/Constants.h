@@ -14,6 +14,10 @@ static const int GRID_WIDTH = 10;
 static const int GRID_HEIGHT = 20;
 
 static const float INITIAL_STEP_INTERVAL = 1.0f;
+static const float SPEED_MAX = 0.05f;
+
+static const int SCORE_TO_ACCELERATE = 5;
+static const float ACCELERATTE_FACTOR = 0.95f;
 
 static const float DROP_VELOCITY = 8000.0f;
 
@@ -23,7 +27,6 @@ static const int TETROMINO_BLOCK_NUMBER = 4;
 enum class TetrominoType {
     I = 0,
     O = 1,
-    
     T = 2,
     S = 3,
     Z = 4,
