@@ -283,12 +283,11 @@ void Grid::clearLines()
                         block->setPositionY(block->getPosition().y - block->getContentSize().height);
                     }
                 }
-            
-                std::vector<Sprite*> newRow(GRID_WIDTH, nullptr);
-                blocksLanded.push_back(newRow);
-                
-                y--;
             }
+            std::vector<Sprite*> newRow(GRID_WIDTH, nullptr);
+            blocksLanded.push_back(newRow);
+            
+            y--;
         }
     }
 }
