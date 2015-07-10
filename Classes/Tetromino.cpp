@@ -158,7 +158,7 @@ int Tetromino::getWidthInBlocks()
     {
         Coordinate coordinate = coordinates[index];
 
-        if (coordinate.x > leftMost)
+        if (coordinate.x < leftMost)
         {
             leftMost = coordinate.x;
         }
@@ -170,7 +170,7 @@ int Tetromino::getWidthInBlocks()
 
     }
 
-    return leftMost - rightMost + 1;
+    return rightMost - leftMost + 1;
 }
 
 int Tetromino::getMinimumXCoordinate()

@@ -36,7 +36,7 @@ public:
     
 private:
     Tetromino* activeTetromino;
-    std::vector<std::vector<cocos2d::Sprite*>> blockLanded;
+    std::vector<std::vector<cocos2d::Sprite*>> blocksLanded;
     
     bool init() override;
     void onEnter() override;
@@ -49,6 +49,8 @@ private:
     void deactivateTetromino(Tetromino* tetromino, Coordinate tetrominoCoordinate);
     void placeTetrominoOnBoard(Tetromino *tetromino, Coordinate tetrominoCoordinate);
     Coordinate getTetrominoLandingCoordinate();
+    
+    void clearLines();
 };
 
 #endif /* defined(__Tetriminos__Grid__) */

@@ -210,7 +210,7 @@ void GameScene::step(float dt) {
     }
     else
     {
-    this->grid->step();
+        this->grid->step();
     }
 }
 
