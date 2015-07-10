@@ -15,6 +15,13 @@
 
 namespace JSONPacker
 {
+    struct GameState
+    {
+        std::string name;
+        bool gameOver;
+        int score;
+        std::vector<std::vector<cocos2d::Color3B>> board;
+    };
     
     struct TetrominoState
     {
@@ -26,6 +33,8 @@ namespace JSONPacker
     TetrominoState unpackTetrominoJSON(std::string json, TetrominoType type);
     // std::string packLineData(const TetrominoState TetrominoState);
     
+    GameState unpackGameStateJSON(std::string json);
+    std::string packGameState(const GameState data);
 }
 
 #endif /* defined(__Tetriminos__JSONPacker__) */
