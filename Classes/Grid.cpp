@@ -161,6 +161,12 @@ int Grid::getTotalLinesCleared()
     return this->totalLinesCleared;
 }
 
+std::vector<std::vector<cocos2d::Sprite*>> Grid::getBlocksLanded()
+{
+    return this->blocksLanded;
+}
+
+
 bool Grid::checkIfTopReached()
 {
     for (Sprite* block : blocksLanded.back())

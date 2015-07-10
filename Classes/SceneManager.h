@@ -9,18 +9,27 @@
 #ifndef __Tetriminos__SceneManager__
 #define __Tetriminos__SceneManager__
 
-#include <cocos2d.h>
+#include "NetworkingWrapper.h"
+class GameScene;
 
-class SceneManager
+class SceneManager : public NetworkingDelegate
 {
 public:
     static SceneManager* getInstance();
+    
     void enterGameScene(bool networked);
     void enterLobby(bool networked);
+    void showPeerList();
+    void receiveMultiplayerInvitations();
+    void sendData(const void* data, unsigned long length);
     
 private:
+    std::unique_ptr<NetworkingWrapper> networkingWrapper;
+    GameScene* gameScene;
     SceneManager();
     ~SceneManager();
-
+    
+    void receivedData(const void* data, unsigned long length);
+    void stateChanged(ConnectionState state);
  };
 #endif /* defined(__Tetriminos__SceneManager__) */

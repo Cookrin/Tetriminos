@@ -28,17 +28,21 @@ public:
     //
     CREATE_FUNC(GameScene);
     
+    void setNetworkedSession(bool networkedSession);
+    void receiveData(const void* data, unsigned long length);
+    
 private:
     //
     
 protected:
-    //
     Grid*grid;
     std::unique_ptr<TetrominoBag> tetrominoBag;
     bool active;
     int totalScore;
     float stepInterval;
     float timeLeft;
+    bool networkedSession;
+    bool gameIsOver;
     
     //Lifecycle
     bool init() override;
@@ -64,6 +68,9 @@ protected:
     void updateScoreLabel(int score);
     cocos2d::ui::Text* scoreLabel;
     cocos2d::ui::Text* timeLeftLabel;
+    
+    //Networking
+    void sendGameStateOverNetwork();
 };
 
 #endif /* defined(__Tetriminos__GameScene__) */

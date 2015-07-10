@@ -69,6 +69,8 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		F84FF1E31B5068910053D9E6 /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = F84FF1DF1B5068910053D9E6 /* NetworkingWrapper.mm */; };
 		F84FF1E41B5068910053D9E6 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F84FF1E11B5068910053D9E6 /* NetworkManager.mm */; };
+		F84FF1EA1B5078370053D9E6 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84FF1E91B5078370053D9E6 /* MultipeerConnectivity.framework */; };
+		F84FF1ED1B508AE00053D9E6 /* PreviewGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F84FF1EB1B508AE00053D9E6 /* PreviewGrid.cpp */; };
 		F8775FD71B45DCAF0090771F /* TetrominoBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */; };
 		F8775FD81B45DCAF0090771F /* TetrominoBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */; };
 		F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C1969E1B447DBF00B96768 /* Lobby.cpp */; };
@@ -183,6 +185,9 @@
 		F84FF1E01B5068910053D9E6 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		F84FF1E11B5068910053D9E6 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
 		F84FF1E21B5068910053D9E6 /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
+		F84FF1E91B5078370053D9E6 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		F84FF1EB1B508AE00053D9E6 /* PreviewGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreviewGrid.cpp; sourceTree = "<group>"; };
+		F84FF1EC1B508AE00053D9E6 /* PreviewGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewGrid.h; sourceTree = "<group>"; };
 		F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrominoBag.cpp; sourceTree = "<group>"; };
 		F8775FD61B45DCAF0090771F /* TetrominoBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrominoBag.h; sourceTree = "<group>"; };
 		F8C1969E1B447DBF00B96768 /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84FF1EA1B5078370053D9E6 /* MultipeerConnectivity.framework in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
@@ -293,6 +299,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F84FF1E91B5078370053D9E6 /* MultipeerConnectivity.framework */,
 				8262943D1AAF051F00CB7CF7 /* Security.framework */,
 				52B47A461A53D09B004E4C60 /* Security.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
@@ -424,6 +431,8 @@
 				F8C196B21B44A48E00B96768 /* Grid.h */,
 				F8C196B51B44A84B00B96768 /* Tetromino.cpp */,
 				F8C196B61B44A84B00B96768 /* Tetromino.h */,
+				F84FF1EB1B508AE00053D9E6 /* PreviewGrid.cpp */,
+				F84FF1EC1B508AE00053D9E6 /* PreviewGrid.h */,
 			);
 			name = "Game Sprites";
 			sourceTree = "<group>";
@@ -595,6 +604,7 @@
 				F8C196AF1B4498F100B96768 /* SceneManager.cpp in Sources */,
 				F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				F84FF1ED1B508AE00053D9E6 /* PreviewGrid.cpp in Sources */,
 				F8C196AA1B448FEE00B96768 /* GameScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F8C196BB1B44AFD000B96768 /* Coordinate.cpp in Sources */,

@@ -36,8 +36,12 @@ public:
     
     void startAdvertisingAvailability();
     
+    void stopAdvertisingAvailability();
+    
+    // shows on our localdevice
     void showPeerList();
     
+    // send the JSON
     void sendData(const void* data, unsigned long length);
     
     static const char * getDeviceName();

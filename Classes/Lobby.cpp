@@ -32,6 +32,8 @@ void Lobby::onEnter()
 {
     Node::onEnter();
     
+    SceneManager::getInstance()->receiveMultiplayerInvitations();
+    
     this->setupUI();
 }
 
@@ -74,5 +76,9 @@ void Lobby::singlePlayerPressed(Ref *pSender, ui::Widget::TouchEventType eEventT
 
 void Lobby::multiplayerPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 {
-    
+    if (eEventType == ui::Widget::TouchEventType::ENDED)
+    {
+        SceneManager::getInstance()->showPeerList();
+        
+    };
 }
