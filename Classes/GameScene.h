@@ -27,7 +27,6 @@ class GameScene : public cocos2d::Node
 public:
     //
     CREATE_FUNC(GameScene);
-     Coordinate convertPositionToCoodinate(cocos2d::Vec2 position);
     
 private:
     //
@@ -36,20 +35,30 @@ protected:
     //
     Grid*grid;
     std::unique_ptr<TetrominoBag> tetrominoBag;
-
+    bool active;
+    int totalScore;
     
+    //Lifecycle
     bool init() override;
     void onEnter() override;
 
     void setupTouchHanding();
     
-    void setupUI();
     void backButtonPressed(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-    Tetromino* createRandomTetromino();
     
+    //Game Logic
+    Tetromino* createRandomTetromino();
     void setGameActive(bool active);
     void step(float dt);
-    bool active;
+    void updateStateFromScore();
+
+    //Utility
+    Coordinate convertPositionToCoodinate(cocos2d::Vec2 position);
+
+    //UI
+    void setupUI();
+    void updateScoreLabel(int score);
+    cocos2d::ui::Text* scoreLabel;
 };
 
 #endif /* defined(__Tetriminos__GameScene__) */

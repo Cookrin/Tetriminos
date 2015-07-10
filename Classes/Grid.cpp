@@ -9,6 +9,8 @@
 #include "Grid.h"
 #include "Tetromino.h"
 #include "Constants.h"
+#include "UIConstants.h"
+
 
 using namespace cocos2d;
 
@@ -35,6 +37,9 @@ bool Grid::init()
     // rotateBlock->rotate(true);
     
     this->activeTetrominoCoordinate = Coordinate();
+    
+    this->score = 0;
+    this->totalLinesCleared = 0;
     
     for (int index = 0; index < GRID_HEIGHT; ++index)
     {
@@ -95,7 +100,8 @@ void Grid::spawnTetromino(Tetromino *tetromino)
     this->ghostTetromino = Tetromino::createWithType(type);
     
     this->ghostTetromino->setCascadeOpacityEnabled(true);
-    this->ghostTetromino->setOpacity(70);
+    
+    this->ghostTetromino->setOpacity(GHOST_TETROMINO_OPACITY);
     this->updateGhostTetrominoPosition();
     
     this->addChild(ghostTetromino);
@@ -144,6 +150,17 @@ void Grid::dropActiveTetromino()
     this->setActiveTetrominoCoordinate(landingCoordinate);
     this->deactivateTetromino(activeTetromino, activeTetrominoCoordinate);
 }
+
+int Grid::getScore()
+{
+    return this->score;
+}
+
+int Grid::getTotalLinesCleared()
+{
+    return this->totalLinesCleared;
+}
+
 
 #pragma mark -
 #pragma mark Private Methods
@@ -265,6 +282,8 @@ Coordinate Grid::getTetrominoLandingCoordinate()
 
 void Grid::clearLines()
 {
+    int linesCleared = 0;
+    
     for (int y = 0; y < GRID_HEIGHT; ++y)
     {
         // check if all the blocks in a row are filled
@@ -303,12 +322,18 @@ void Grid::clearLines()
                     }
                 }
             }
+            
+            linesCleared++;
+            
             std::vector<Sprite*> newRow(GRID_WIDTH, nullptr);
             blocksLanded.push_back(newRow);
             
             y--;
         }
     }
+    
+    this->totalLinesCleared += linesCleared;
+    this->updateScore(linesCleared);
 }
 
 void Grid::updateGhostTetrominoPosition()
@@ -318,4 +343,16 @@ void Grid::updateGhostTetrominoPosition()
         Coordinate landingCoordinate = this->getTetrominoLandingCoordinate();
         ghostTetromino->setPosition(this->convertCoordinateToPosition(landingCoordinate));
     }
+}
+
+void Grid::updateScore(int linesCleared)
+{
+    int scoreToAdd = linesCleared;
+    
+    if (linesCleared == 4)
+    {
+        scoreToAdd = 5;
+    }
+    
+    this->score += scoreToAdd;
 }

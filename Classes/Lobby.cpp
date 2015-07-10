@@ -9,6 +9,7 @@
 #include "Lobby.h"
 #include "GameScene.h"
 #include "SceneManager.h"
+#include "UIConstants.h"
 
 using namespace cocos2d;
 

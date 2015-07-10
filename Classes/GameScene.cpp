@@ -14,6 +14,7 @@
 #include "Constants.h"
 #include "Coordinate.h"
 #include <time.h>
+#include "UIConstants.h"
 
 
 using namespace cocos2d;
@@ -33,6 +34,8 @@ bool GameScene::init()
     this->addChild(background);
     
     this->tetrominoBag = std::unique_ptr<TetrominoBag>(new TetrominoBag());
+    
+    this->totalScore = 0;
 
     this->active = false;
     
@@ -74,6 +77,13 @@ void GameScene::setupUI()
     backButton->loadTextures("backButton.png", "backButtonPressed.png");
     backButton->addTouchEventListener(CC_CALLBACK_2(GameScene::backButtonPressed, this));
     this->addChild(backButton);
+    
+    //set up lables
+    this->scoreLabel = ui::Text::create("0", FONT_NAME, FONT_SIZE);
+    this->scoreLabel->setAnchorPoint(Vec2(0.5f, 1.0f));
+    this->scoreLabel->setPosition(Vec2(visibleSize.width*0.5f, visibleSize.height * 0.95f));
+    this->scoreLabel->setColor(LABEL_COLOR);
+    this->addChild(scoreLabel);
 }
 
 void GameScene::backButtonPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
@@ -83,6 +93,23 @@ void GameScene::backButtonPressed(Ref *pSender, ui::Widget::TouchEventType eEven
         SceneManager::getInstance()->enterLobby(false);
     };
     
+}
+
+void GameScene::updateScoreLabel(int score)
+{
+    std::string scoreString = StringUtils::toString(score);
+    this->scoreLabel->setString(scoreString);
+}
+
+void GameScene::updateStateFromScore()
+{
+    int newScore = this->grid->getScore();
+    if (newScore > this->totalScore)
+    {
+        this->totalScore = newScore;
+        this->updateScoreLabel(newScore);
+        
+    }
 }
 
 #pragma mark -
@@ -176,6 +203,7 @@ void GameScene::setupTouchHanding()
                 {
                     CCLOG("DROP VELOCITY was %f", velocity);
                     this->grid->dropActiveTetromino();
+                    this->updateStateFromScore();
                 }
             }
         }
@@ -211,6 +239,7 @@ void GameScene::step(float dt) {
     else
     {
         this->grid->step();
+        this->updateStateFromScore();
     }
 }
 

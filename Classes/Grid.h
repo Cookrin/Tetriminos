@@ -34,10 +34,18 @@ public:
     Tetromino* getActiveTetromino();
     void dropActiveTetromino();
     
+    int getScore();
+    int getTotalLinesCleared();
+    
 private:
     Tetromino* activeTetromino;
     Tetromino* ghostTetromino;
     std::vector<std::vector<cocos2d::Sprite*>> blocksLanded;
+    
+    int score;
+    int totalLinesCleared;
+    
+    void updateScore(int linesCleared);
     
     bool init() override;
     void onEnter() override;
