@@ -161,6 +161,17 @@ int Grid::getTotalLinesCleared()
     return this->totalLinesCleared;
 }
 
+bool Grid::checkIfTopReached()
+{
+    for (Sprite* block : blocksLanded.back())
+    {
+        if (block)
+        {
+            return true;
+        }
+    }
+    return false;
+}
 
 #pragma mark -
 #pragma mark Private Methods

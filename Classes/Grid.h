@@ -36,6 +36,7 @@ public:
     
     int getScore();
     int getTotalLinesCleared();
+    bool checkIfTopReached();
     
 private:
     Tetromino* activeTetromino;

@@ -23,6 +23,8 @@ static const float DROP_VELOCITY = 8000.0f;
 
 static const int TETROMINO_BLOCK_NUMBER = 4;
 
+static const float TIME_PER_GAME = 120.0f;
+
 // enum class or enum struct means almost the same thing
 enum class TetrominoType {
     I = 0,

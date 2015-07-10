@@ -38,13 +38,13 @@ protected:
     bool active;
     int totalScore;
     float stepInterval;
+    float timeLeft;
     
     //Lifecycle
     bool init() override;
     void onEnter() override;
-
     void setupTouchHanding();
-    
+    void update(float dt) override;
     void backButtonPressed(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
     //Game Logic
@@ -53,7 +53,9 @@ protected:
     void step(float dt);
     void updateStateFromScore();
     void updateGameSpeed(int score);
-
+    void gameOver();
+    void setTimeLeft(float time);
+    
     //Utility
     Coordinate convertPositionToCoodinate(cocos2d::Vec2 position);
 
@@ -61,6 +63,7 @@ protected:
     void setupUI();
     void updateScoreLabel(int score);
     cocos2d::ui::Text* scoreLabel;
+    cocos2d::ui::Text* timeLeftLabel;
 };
 
 #endif /* defined(__Tetriminos__GameScene__) */
