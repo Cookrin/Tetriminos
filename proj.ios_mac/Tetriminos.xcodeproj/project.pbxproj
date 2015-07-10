@@ -67,6 +67,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		F84FF1E31B5068910053D9E6 /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = F84FF1DF1B5068910053D9E6 /* NetworkingWrapper.mm */; };
+		F84FF1E41B5068910053D9E6 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F84FF1E11B5068910053D9E6 /* NetworkManager.mm */; };
 		F8775FD71B45DCAF0090771F /* TetrominoBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */; };
 		F8775FD81B45DCAF0090771F /* TetrominoBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */; };
 		F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8C1969E1B447DBF00B96768 /* Lobby.cpp */; };
@@ -176,6 +178,11 @@
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		F84FF1CC1B50361D0053D9E6 /* UIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
+		F84FF1DE1B5068910053D9E6 /* NetworkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingWrapper.h; sourceTree = "<group>"; };
+		F84FF1DF1B5068910053D9E6 /* NetworkingWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingWrapper.mm; sourceTree = "<group>"; };
+		F84FF1E01B5068910053D9E6 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		F84FF1E11B5068910053D9E6 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
+		F84FF1E21B5068910053D9E6 /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
 		F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrominoBag.cpp; sourceTree = "<group>"; };
 		F8775FD61B45DCAF0090771F /* TetrominoBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrominoBag.h; sourceTree = "<group>"; };
 		F8C1969E1B447DBF00B96768 /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
@@ -327,24 +334,10 @@
 				F84FF1CC1B50361D0053D9E6 /* UIConstants.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
-				F8C196A81B448FEE00B96768 /* GameScene.cpp */,
-				F8C196A91B448FEE00B96768 /* GameScene.h */,
-				F8C196AD1B4498F100B96768 /* SceneManager.cpp */,
-				F8C196AE1B4498F100B96768 /* SceneManager.h */,
-				F8C1969E1B447DBF00B96768 /* Lobby.cpp */,
-				F8C1969F1B447DBF00B96768 /* Lobby.h */,
-				F8C196B11B44A48E00B96768 /* Grid.cpp */,
-				F8C196B21B44A48E00B96768 /* Grid.h */,
-				F8C196B51B44A84B00B96768 /* Tetromino.cpp */,
-				F8C196B61B44A84B00B96768 /* Tetromino.h */,
-				F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */,
-				F8775FD61B45DCAF0090771F /* TetrominoBag.h */,
-				F8C196B91B44AFD000B96768 /* Coordinate.cpp */,
-				F8C196BA1B44AFD000B96768 /* Coordinate.h */,
-				F8C196BD1B44B46E00B96768 /* JSONPacker.cpp */,
-				F8C196BE1B44B46E00B96768 /* JSONPacker.h */,
+				F84FF1E61B5068C50053D9E6 /* Scenes */,
+				F84FF1E71B50690C0053D9E6 /* Game Sprites */,
+				F84FF1E81B5069240053D9E6 /* Utility */,
+				F84FF1DD1B5068660053D9E6 /* Networking */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -396,6 +389,57 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		F84FF1DD1B5068660053D9E6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F84FF1DE1B5068910053D9E6 /* NetworkingWrapper.h */,
+				F84FF1DF1B5068910053D9E6 /* NetworkingWrapper.mm */,
+				F84FF1E01B5068910053D9E6 /* NetworkManager.h */,
+				F84FF1E11B5068910053D9E6 /* NetworkManager.mm */,
+				F84FF1E21B5068910053D9E6 /* NetworkManagerDelegate.h */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		F84FF1E61B5068C50053D9E6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
+				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				F8C196A81B448FEE00B96768 /* GameScene.cpp */,
+				F8C196A91B448FEE00B96768 /* GameScene.h */,
+				F8C196AD1B4498F100B96768 /* SceneManager.cpp */,
+				F8C196AE1B4498F100B96768 /* SceneManager.h */,
+				F8C1969E1B447DBF00B96768 /* Lobby.cpp */,
+				F8C1969F1B447DBF00B96768 /* Lobby.h */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		F84FF1E71B50690C0053D9E6 /* Game Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				F8C196B11B44A48E00B96768 /* Grid.cpp */,
+				F8C196B21B44A48E00B96768 /* Grid.h */,
+				F8C196B51B44A84B00B96768 /* Tetromino.cpp */,
+				F8C196B61B44A84B00B96768 /* Tetromino.h */,
+			);
+			name = "Game Sprites";
+			sourceTree = "<group>";
+		};
+		F84FF1E81B5069240053D9E6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F8775FD51B45DCAF0090771F /* TetrominoBag.cpp */,
+				F8775FD61B45DCAF0090771F /* TetrominoBag.h */,
+				F8C196B91B44AFD000B96768 /* Coordinate.cpp */,
+				F8C196BA1B44AFD000B96768 /* Coordinate.h */,
+				F8C196BD1B44B46E00B96768 /* JSONPacker.cpp */,
+				F8C196BE1B44B46E00B96768 /* JSONPacker.h */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -544,8 +588,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C196B31B44A48E00B96768 /* Grid.cpp in Sources */,
+				F84FF1E31B5068910053D9E6 /* NetworkingWrapper.mm in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				F84FF1E41B5068910053D9E6 /* NetworkManager.mm in Sources */,
 				F8C196AF1B4498F100B96768 /* SceneManager.cpp in Sources */,
 				F8C196A01B447DBF00B96768 /* Lobby.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
