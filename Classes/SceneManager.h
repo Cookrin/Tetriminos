@@ -18,7 +18,7 @@ public:
     static SceneManager* getInstance();
     
     void enterGameScene(bool networked);
-    void enterLobby(bool networked);
+    void enterLobby();
     void showPeerList();
     void receiveMultiplayerInvitations();
     void sendData(const void* data, unsigned long length);

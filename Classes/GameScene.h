@@ -20,6 +20,7 @@
 class Grid;
 class Tetromino;
 class Coordinate;
+class PreviewGrid;
 
 // create the class GameScene
 class GameScene : public cocos2d::Node
@@ -43,6 +44,7 @@ protected:
     float timeLeft;
     bool networkedSession;
     bool gameIsOver;
+    PreviewGrid* previewGrid;
     
     //Lifecycle
     bool init() override;

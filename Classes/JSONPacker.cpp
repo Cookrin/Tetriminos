@@ -118,7 +118,7 @@ namespace JSONPacker
         
         gameState.score = document["score"].GetInt();
         gameState.name = document["name"].GetString();
-        gameState.gameOver = document["gameOVer"].GetBool();
+        gameState.gameOver = document["gameOver"].GetBool();
         
         rapidjson::Value& columns = document["board"];
         

@@ -54,7 +54,7 @@ void SceneManager::enterGameScene(bool networked)
     Director::getInstance()->pushScene(scene);
 }
 
-void SceneManager::enterLobby(bool networked)
+void SceneManager::enterLobby()
 {
     if (gameScene)
     {
@@ -62,13 +62,6 @@ void SceneManager::enterLobby(bool networked)
         gameScene = nullptr;
         networkingWrapper->disconnect();
     }
-    
-    Scene* scene = Scene::create();
-    Lobby* lobby = Lobby::create();
-    
-    scene->addChild(lobby);
-    
-    Director::getInstance()->pushScene(scene);
 }
 
 #pragma mark -
@@ -86,6 +79,10 @@ void SceneManager::receiveMultiplayerInvitations()
 
 void SceneManager::receivedData(const void *data, unsigned long length)
 {
+    if (gameScene)
+    {
+        gameScene->receiveData(data, length);
+    }
 }
 
 void SceneManager::stateChanged(ConnectionState state)
@@ -112,8 +109,5 @@ void SceneManager::stateChanged(ConnectionState state)
 
 void SceneManager::sendData(const void *data, unsigned long length)
 {
-    if (gameScene)
-    {
-        gameScene->receiveData(data, length);
-    }
+    networkingWrapper->sendData(data, length);
 }

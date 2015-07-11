@@ -17,6 +17,7 @@
 #include "UIConstants.h"
 #include "JSONPacker.h"
 #include "NetworkingWrapper.h"
+#include "PreviewGrid.h"
 
 using namespace cocos2d;
 
@@ -65,6 +66,18 @@ void GameScene::onEnter()
     Tetromino* randomTest = this->createRandomTetromino();
     grid->spawnTetromino(randomTest);
     
+    if (this->networkedSession)
+    {
+        this->grid->setAnchorPoint(Vec2(0.0f, 0.0f));
+        this->grid->setPosition(Vec2(0.0f, 0.0f));
+        
+        this->previewGrid = PreviewGrid::create();
+        this->previewGrid->setAnchorPoint(Vec2(1.0f, 1.0f));
+        this->previewGrid->setPosition(Vec2(visibleSize.width, visibleSize.height));
+        this->previewGrid->setScale(0.3f);
+        this->addChild(previewGrid);
+    }
+    
     this->setupUI();
     this->setGameActive(true);
     this->setupTouchHanding();
@@ -85,7 +98,7 @@ void GameScene::gameOver()
     
     MessageBox(messageContent.c_str(), "Game Over");
     
-    SceneManager::getInstance()->enterLobby(false);
+    SceneManager::getInstance()->enterLobby();
 }
 
 #pragma mark -
@@ -123,7 +136,7 @@ void GameScene::backButtonPressed(Ref *pSender, ui::Widget::TouchEventType eEven
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED)
     {
-        SceneManager::getInstance()->enterLobby(false);
+        SceneManager::getInstance()->enterLobby();
     };
     
 }
@@ -330,6 +343,15 @@ void GameScene::receiveData(const void *data, unsigned long length)
 {
     const char* cstr = reinterpret_cast<const char*>(data);
     std::string json = std::string(cstr, length);
+    
+    JSONPacker::GameState state = JSONPacker::unpackGameStateJSON(json);
+    
+    if (state.gameOver)
+    {
+        this->gameOver();
+    }
+    
+    this->previewGrid->setState(state);
 }
 
 void GameScene::sendGameStateOverNetwork()
@@ -372,7 +394,10 @@ void GameScene::sendGameStateOverNetwork()
         {
             Coordinate gridCoordinate = Coordinate::add(tetrominoCoordinate, blockCoordinate);
             
-            state.board[gridCoordinate.y][gridCoordinate.x] = activeTetromino->getTetrominoColor();
+            if (gridCoordinate.x < GRID_WIDTH && gridCoordinate.y < GRID_HEIGHT)
+            {
+                state.board[gridCoordinate.y][gridCoordinate.x] = activeTetromino->getTetrominoColor();
+            }
         }
     }
     
